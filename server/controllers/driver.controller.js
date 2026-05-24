@@ -71,7 +71,7 @@ exports.createDriver = async (req, res) => {
       success: true,
       driver: populatedDriver,
       credentials: {
-        loginId: phone,
+        loginId: email,
         password: defaultPassword
       }
     })

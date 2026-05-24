@@ -13,6 +13,10 @@ import RoutesPage from '../pages/admin/Routes'
 import Orders from '../pages/admin/Orders'
 import { SocketProvider } from '../context/SocketContext'
 import ActiveTrip from '../pages/driver/ActiveTrip'
+import AdminDashboard from '../pages/admin/AdminDashboard'
+import DriverDashboard from '../pages/driver/DriverDashboard'
+import MyTrips from '../pages/driver/MyTrips'
+
 
 
 // Layout wrapper
@@ -43,12 +47,13 @@ function AppRoutes() {
 
       {/* Admin */}
       <Route path="/admin/dashboard" element={
-        <ProtectedRoute roles={['admin']}>
-          <Layout>
-            <div className="p-4 text-white">Admin Dashboard — Coming Soon</div>
-          </Layout>
-        </ProtectedRoute>
-      } />
+  <ProtectedRoute roles={['admin']}>
+    <Layout>
+      <AdminDashboard />
+    </Layout>
+  </ProtectedRoute>
+} />
+      
       <Route path="/admin/vehicles" element={
         <ProtectedRoute roles={['admin']}>
           <Layout>
@@ -78,10 +83,34 @@ function AppRoutes() {
       <Route path="/driver/dashboard" element={
         <ProtectedRoute roles={['driver']}>
           <Layout>
-            <div className="p-4 text-white">Driver Dashboard — Coming Soon</div>
+             <DriverDashboard />
           </Layout>
         </ProtectedRoute>
       } />
+      
+      <Route path="/admin/dashboard" element={
+  <ProtectedRoute roles={['admin']}>
+    <Layout>
+      <AdminDashboard />
+    </Layout>
+  </ProtectedRoute>
+} />
+
+<Route path="/driver/dashboard" element={
+  <ProtectedRoute roles={['driver']}>
+    <Layout>
+      <DriverDashboard />
+    </Layout>
+  </ProtectedRoute>
+} />
+
+<Route path="/driver/trips" element={
+  <ProtectedRoute roles={['driver']}>
+    <Layout>
+      <MyTrips />
+    </Layout>
+  </ProtectedRoute>
+} />
       
       <Route path="/admin/routes" element={
   <ProtectedRoute roles={['admin']}>

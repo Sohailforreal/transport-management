@@ -32,11 +32,11 @@ const CredentialsCard = ({ credentials, driverName, onClose }) => {
         {/* Credentials */}
         <div className="bg-gray-800 rounded-xl p-4 mb-4 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-gray-400 text-sm">Login ID</span>
-            <span className="text-white font-mono font-semibold">
-              {credentials.loginId}
-            </span>
-          </div>
+  <span className="text-gray-400 text-sm">Email</span>
+  <span className="text-white font-mono font-semibold">
+    {credentials.loginId}
+  </span>
+</div>
           <div className="h-px bg-gray-700" />
           <div className="flex items-center justify-between">
             <span className="text-gray-400 text-sm">Password</span>
