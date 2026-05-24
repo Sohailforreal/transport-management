@@ -17,6 +17,12 @@ import AdminDashboard from '../pages/admin/AdminDashboard'
 import DriverDashboard from '../pages/driver/DriverDashboard'
 import MyTrips from '../pages/driver/MyTrips'
 
+import Reports from '../pages/admin/Reports'
+import ManagerDashboard from '../pages/manager/ManagerDashboard'
+
+import ManagerOrders from '../pages/admin/Orders'
+
+
 
 
 // Layout wrapper
@@ -70,14 +76,32 @@ function AppRoutes() {
   </ProtectedRoute>
 } />
 
+
+
       {/* Manager */}
       <Route path="/manager/dashboard" element={
-        <ProtectedRoute roles={['manager']}>
-          <Layout>
-            <div className="p-4 text-white">Manager Dashboard — Coming Soon</div>
-          </Layout>
-        </ProtectedRoute>
-      } />
+  <ProtectedRoute roles={['manager']}>
+    <Layout>
+      <ManagerDashboard />
+    </Layout>
+  </ProtectedRoute>
+} />
+
+<Route path="/manager/orders" element={
+  <ProtectedRoute roles={['manager', 'admin']}>
+    <Layout>
+      <ManagerOrders />
+    </Layout>
+  </ProtectedRoute>
+} />
+      
+      <Route path="/admin/reports" element={
+  <ProtectedRoute roles={['admin']}>
+    <Layout>
+      <Reports />
+    </Layout>
+  </ProtectedRoute>
+} />
 
       {/* Driver */}
       <Route path="/driver/dashboard" element={
