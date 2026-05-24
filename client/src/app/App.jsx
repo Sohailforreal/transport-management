@@ -11,7 +11,8 @@ import Drivers from '../pages/admin/Drivers'
 import { useAuth } from '../context/AuthContext'
 import RoutesPage from '../pages/admin/Routes'
 import Orders from '../pages/admin/Orders'
-
+import { SocketProvider } from '../context/SocketContext'
+import ActiveTrip from '../pages/driver/ActiveTrip'
 
 
 // Layout wrapper
@@ -110,16 +111,18 @@ function AppRoutes() {
     </Routes>
   )
 }
-
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Toaster position="top-right" />
-        <AppRoutes />
-      </BrowserRouter>
+      <SocketProvider>
+        <BrowserRouter>
+          <Toaster position="top-right" />
+          <AppRoutes />
+        </BrowserRouter>
+      </SocketProvider>
     </AuthProvider>
   )
 }
+
 
 export default App

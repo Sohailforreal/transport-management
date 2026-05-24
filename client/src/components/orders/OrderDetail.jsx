@@ -9,6 +9,9 @@ import { format } from 'date-fns'
 import { X, Truck, User, MapPin, Package, Phone } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useAuth } from '../../context/AuthContext'
+import LiveTracker from '../tracking/LiveTracker'
+
+
 
 const OrderDetail = ({ order, timeline, onUpdate, onClose }) => {
   const { user } = useAuth()
@@ -143,6 +146,9 @@ const OrderDetail = ({ order, timeline, onUpdate, onClose }) => {
                 </div>
               </div>
             </div>
+            {/* Live Tracker */}{['dispatched','intransit'].includes(order.status) && (
+            <LiveTracker order={order} />
+            )}
 
             {/* Client + Driver */}
             <div className="grid grid-cols-2 gap-3">

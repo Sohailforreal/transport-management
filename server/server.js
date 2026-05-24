@@ -48,6 +48,9 @@ app.use('/api/routes', routeRoutes)
 const orderRoutes = require('./routes/order.routes')
 app.use('/api/orders', orderRoutes)
 
+const trackingRoutes = require('./routes/tracking.routes')
+app.use('/api/tracking', trackingRoutes)
+
 
 const PORT = process.env.PORT || 5000
 server.listen(PORT, () => {

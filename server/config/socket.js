@@ -26,6 +26,13 @@ const setupSocket = (io) => {
     socket.on('disconnect', () => {
       console.log(`Socket disconnected: ${socket.id}`)
     })
+    
+    // Manager joins order room to watch
+    socket.on('manager:join', ({ orderId }) => {
+      socket.join(orderId)
+      
+    })
+    
   })
 }
 
