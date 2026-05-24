@@ -9,6 +9,8 @@ import Login from '../pages/auth/Login'
 import Vehicles from '../pages/admin/Vehicles'
 import Drivers from '../pages/admin/Drivers'
 import { useAuth } from '../context/AuthContext'
+import RoutesPage from '../pages/admin/Routes'
+
 
 // Layout wrapper
 const Layout = ({ children }) => {
@@ -77,6 +79,14 @@ function AppRoutes() {
           </Layout>
         </ProtectedRoute>
       } />
+      
+      <Route path="/admin/routes" element={
+  <ProtectedRoute roles={['admin']}>
+    <Layout>
+      <RoutesPage />
+    </Layout>
+  </ProtectedRoute>
+} />
 
       {/* Unauthorized */}
       <Route path="/unauthorized" element={
