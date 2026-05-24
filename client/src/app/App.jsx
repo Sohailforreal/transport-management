@@ -10,6 +10,8 @@ import Vehicles from '../pages/admin/Vehicles'
 import Drivers from '../pages/admin/Drivers'
 import { useAuth } from '../context/AuthContext'
 import RoutesPage from '../pages/admin/Routes'
+import Orders from '../pages/admin/Orders'
+
 
 
 // Layout wrapper
@@ -17,14 +19,14 @@ const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-gray-950 flex">
+    <div className="min-h-screen bg-gray-950">
       <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
-      <div className="flex-1 lg:ml-64">
+      <div className="lg:pl-64">
         <Navbar onMenuClick={() => setSidebarOpen(true)} />
-        <main className="p-0">
+        <main className="overflow-x-hidden">
           {children}
         </main>
       </div>
@@ -84,6 +86,14 @@ function AppRoutes() {
   <ProtectedRoute roles={['admin']}>
     <Layout>
       <RoutesPage />
+    </Layout>
+  </ProtectedRoute>
+} />
+
+<Route path="/admin/orders" element={
+  <ProtectedRoute roles={['admin']}>
+    <Layout>
+      <Orders />
     </Layout>
   </ProtectedRoute>
 } />

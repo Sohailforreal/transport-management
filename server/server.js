@@ -41,8 +41,12 @@ app.use('/api/vehicles', vehicleRoutes)
 const driverRoutes = require('./routes/driver.routes')
 app.use('/api/drivers', driverRoutes)
 
+
 const routeRoutes = require('./routes/route.routes')
 app.use('/api/routes', routeRoutes)
+
+const orderRoutes = require('./routes/order.routes')
+app.use('/api/orders', orderRoutes)
 
 
 const PORT = process.env.PORT || 5000
