@@ -7,6 +7,7 @@ import Sidebar from '../components/common/Sidebar'
 import Navbar from '../components/common/Navbar'
 import Login from '../pages/auth/Login'
 import Vehicles from '../pages/admin/Vehicles'
+import Drivers from '../pages/admin/Drivers'
 import { useAuth } from '../context/AuthContext'
 
 // Layout wrapper
@@ -50,6 +51,14 @@ function AppRoutes() {
           </Layout>
         </ProtectedRoute>
       } />
+      
+      <Route path="/admin/drivers" element={
+  <ProtectedRoute roles={['admin']}>
+    <Layout>
+      <Drivers />
+    </Layout>
+  </ProtectedRoute>
+} />
 
       {/* Manager */}
       <Route path="/manager/dashboard" element={

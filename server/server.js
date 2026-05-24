@@ -38,6 +38,9 @@ app.use('/api/auth', authRoutes)
 const vehicleRoutes = require('./routes/vehicle.routes')
 app.use('/api/vehicles', vehicleRoutes)
 
+const driverRoutes = require('./routes/driver.routes')
+app.use('/api/drivers', driverRoutes)
+
 
 
 const PORT = process.env.PORT || 5000
