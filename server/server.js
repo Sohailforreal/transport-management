@@ -24,14 +24,19 @@ app.use(cors({ origin: process.env.CLIENT_URL }))
 app.use(express.json())
 app.use('/uploads', express.static('uploads'))
 
-// Routes will be added here
+
+
+
+// Routes
 app.get('/', (req, res) => {
   res.json({ message: 'Transport Management API Running' })
 })
 
-// Routes
 const authRoutes = require('./routes/auth.routes')
 app.use('/api/auth', authRoutes)
+
+const vehicleRoutes = require('./routes/vehicle.routes')
+app.use('/api/vehicles', vehicleRoutes)
 
 
 
